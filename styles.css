@@ -207,7 +207,7 @@ img {
 }
 
 .hero-description {
-  max-width: 560px;
+  max-width: 620px;
 
   font-size: 18px;
 
@@ -309,15 +309,23 @@ img {
 }
 
 /* ==================================================
-   4. HERO VISUAL
+   4. HERO VISUAL - LAPTOP
 ================================================== */
 
 .hero-visual {
-  position: relative;
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 }
 
-.visual-background {
-  min-height: 370px;
+.laptop-scene {
+  width: 100%;
+
+  max-width: 520px;
+
+  height: 390px;
 
   position: relative;
 
@@ -328,189 +336,351 @@ img {
   justify-content: center;
 }
 
-.visual-background::before {
-  content: "";
+/* Background glow */
 
+.visual-glow {
   position: absolute;
 
-  width: 320px;
+  width: 370px;
 
-  height: 320px;
+  height: 300px;
 
   border-radius: 50%;
 
   background: radial-gradient(
     circle,
-    rgba(40, 120, 240, 0.12),
-    rgba(40, 120, 240, 0.02) 65%,
-    transparent 70%
+    rgba(40, 120, 240, 0.14),
+    rgba(40, 120, 240, 0.04) 55%,
+    transparent 72%
   );
+
+  filter: blur(4px);
 }
 
-.chart-card {
-  width: 330px;
+/* ==================================================
+   5. LAPTOP
+================================================== */
 
-  height: 225px;
+.laptop {
+  width: 370px;
 
   position: relative;
 
-  z-index: 2;
-
-  background: white;
-
-  border: 1px solid #dde7f4;
-
-  border-radius: 13px;
-
-  box-shadow: 0 25px 50px rgba(43, 74, 115, 0.18);
-
-  padding: 22px;
-
-  transform: perspective(900px) rotateY(-5deg) rotateX(2deg);
+  z-index: 3;
 }
 
-.chart-header {
-  display: flex;
+.laptop-screen {
+  width: 100%;
 
-  justify-content: space-between;
+  height: 240px;
 
-  margin-bottom: 27px;
+  background: #ffffff;
+
+  border: 8px solid #24354b;
+
+  border-bottom-width: 11px;
+
+  border-radius: 13px 13px 7px 7px;
+
+  padding: 18px;
+
+  box-shadow: 0 25px 45px rgba(32, 60, 95, 0.2);
+
+  overflow: hidden;
 }
 
-.chart-header > div:first-child {
-  display: flex;
+/* Laptop bottom */
 
-  flex-direction: column;
+.laptop-base {
+  width: 420px;
+
+  height: 14px;
+
+  position: relative;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: linear-gradient(180deg, #e8edf4, #bac6d4);
+
+  border-radius: 2px 2px 12px 12px;
 }
 
-.chart-small {
-  font-size: 9px;
+.laptop-base::after {
+  content: "";
 
-  color: var(--muted);
+  position: absolute;
+
+  width: 65px;
+
+  height: 4px;
+
+  top: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: #aebac8;
+
+  border-radius: 0 0 6px 6px;
 }
 
-.chart-header strong {
-  font-size: 13px;
-}
-
-.chart-dot {
-  width: 7px;
+.laptop-foot {
+  width: 320px;
 
   height: 7px;
 
-  background: var(--primary);
+  margin: 0 auto;
+
+  background: rgba(37, 59, 86, 0.12);
+
+  filter: blur(6px);
 
   border-radius: 50%;
 }
 
-.fake-chart {
-  height: 125px;
+/* ==================================================
+   6. LAPTOP SCREEN
+================================================== */
 
+.screen-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+}
+
+.screen-header > div {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.screen-label {
+  font-size: 8px;
+
+  color: #91a0b3;
+
+  margin-bottom: 1px;
+}
+
+.screen-header strong {
+  font-size: 11px;
+
+  color: #25364b;
+}
+
+.status-dot {
+  width: 7px;
+
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
+}
+
+/* KPI cards */
+
+.screen-kpis {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 8px;
+
+  margin-bottom: 13px;
+}
+
+.screen-kpi {
+  padding: 8px;
+
+  background: #f4f8fd;
+
+  border: 1px solid #e5edf7;
+
+  border-radius: 5px;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.screen-kpi small {
+  font-size: 6px;
+
+  color: #8493a5;
+}
+
+.screen-kpi strong {
+  font-size: 9px;
+
+  color: #23344a;
+}
+
+/* Dashboard */
+
+.screen-dashboard {
+  height: 112px;
+
+  display: grid;
+
+  grid-template-columns: 1.55fr 0.75fr;
+
+  gap: 12px;
+}
+
+/* Bar chart */
+
+.screen-chart {
   display: flex;
 
   align-items: flex-end;
 
-  justify-content: space-between;
+  gap: 7px;
 
-  gap: 10px;
+  padding: 10px 7px 0;
 
-  padding: 10px 3px 0;
+  border-left: 1px solid #e5ebf2;
 
-  border-bottom: 1px solid #dce5ef;
+  border-bottom: 1px solid #dce4ed;
+
+  background: repeating-linear-gradient(
+    to top,
+    transparent,
+    transparent 25px,
+    rgba(224, 232, 241, 0.7) 26px
+  );
 }
 
-.bar {
+.screen-chart span {
   flex: 1;
 
-  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, #65a8ff, #2878f0);
 
-  background: linear-gradient(180deg, #67a9ff, var(--primary));
-}
-
-.bar-1 {
-  height: 32%;
-}
-.bar-2 {
-  height: 43%;
-}
-.bar-3 {
-  height: 49%;
-}
-.bar-4 {
-  height: 58%;
-}
-.bar-5 {
-  height: 67%;
-}
-.bar-6 {
-  height: 78%;
-}
-.bar-7 {
-  height: 92%;
+  border-radius: 3px 3px 0 0;
 }
 
-.floating-card {
-  position: absolute;
+/* Small code panel */
 
-  z-index: 3;
+.screen-code {
+  background: #172435;
+
+  border-radius: 6px;
+
+  padding: 13px 10px;
 
   display: flex;
 
   flex-direction: column;
 
-  padding: 15px;
+  gap: 7px;
 
-  font-size: 12px;
+  font-family: Consolas, monospace;
 
-  color: #49607a;
+  font-size: 6px;
 
-  background: rgba(255, 255, 255, 0.96);
+  color: #83baff;
 
-  border: 1px solid #e2eaf5;
-
-  border-radius: 10px;
-
-  box-shadow: var(--shadow);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
-.floating-card strong {
-  color: var(--dark);
-}
-
-.floating-card-top {
-  right: 0;
-
-  top: 30px;
-}
-
-.floating-card-top i {
-  color: var(--primary);
-
-  margin: 4px 0;
-}
-
-.floating-card-bottom {
-  right: 18px;
-
-  bottom: 32px;
-}
-
-.plant-decoration {
-  position: absolute;
-
-  z-index: 3;
-
-  left: 10px;
-
-  bottom: 55px;
-
-  font-size: 65px;
-
-  color: #4ca879;
+.screen-code span:nth-child(2),
+.screen-code span:nth-child(3) {
+  color: #c3d7ee;
 }
 
 /* ==================================================
-   5. SECTION HEADINGS
+   7. FLOATING CARDS
+================================================== */
+
+.info-card {
+  position: absolute;
+
+  z-index: 5;
+
+  min-width: 100px;
+
+  padding: 15px 17px;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  border: 1px solid #e0e8f2;
+
+  border-radius: 13px;
+
+  box-shadow: 0 14px 35px rgba(33, 65, 105, 0.13);
+
+  display: flex;
+
+  flex-direction: column;
+
+  font-size: 12px;
+
+  color: #53677f;
+}
+
+.info-card strong {
+  color: #172033;
+
+  font-size: 13px;
+}
+
+.info-card i {
+  color: var(--primary);
+
+  margin: 5px 0;
+
+  font-size: 13px;
+}
+
+.data-card {
+  right: -10px;
+
+  top: 22px;
+}
+
+.decision-card {
+  right: 10px;
+
+  bottom: 24px;
+}
+
+/* ==================================================
+   8. PLANT
+================================================== */
+
+.plant {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 4px;
+
+  bottom: 62px;
+
+  width: 67px;
+
+  height: 67px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 55px;
+
+  color: #4cab7a;
+}
+
+/* ==================================================
+   9. SECTION HEADINGS
 ================================================== */
 
 .section-heading {
@@ -581,7 +751,7 @@ img {
 }
 
 /* ==================================================
-   6. PROJECTS
+   10. PROJECTS
 ================================================== */
 
 .projects {
@@ -794,7 +964,9 @@ img {
     );
 }
 
-/* SQL Preview */
+/* ==================================================
+   11. SQL PROJECT PREVIEW
+================================================== */
 
 .sql-preview {
   display: flex;
@@ -874,7 +1046,9 @@ img {
   color: #7fb7ff;
 }
 
-/* Project content */
+/* ==================================================
+   12. PROJECT CONTENT
+================================================== */
 
 .project-content {
   position: relative;
@@ -961,7 +1135,7 @@ img {
 }
 
 /* ==================================================
-   7. CONTACT
+   13. CONTACT
 ================================================== */
 
 .contact {
@@ -1043,7 +1217,7 @@ img {
 }
 
 /* ==================================================
-   8. FOOTER
+   14. FOOTER
 ================================================== */
 
 footer {
@@ -1101,7 +1275,7 @@ footer {
 }
 
 /* ==================================================
-   9. TABLET
+   15. TABLET
 ================================================== */
 
 @media (max-width: 900px) {
@@ -1118,7 +1292,7 @@ footer {
   .hero-grid {
     grid-template-columns: 1fr;
 
-    gap: 40px;
+    gap: 35px;
   }
 
   .hero-content {
@@ -1144,6 +1318,32 @@ footer {
 
     margin: 0 auto;
   }
+
+  /* Laptop */
+
+  .laptop-scene {
+    max-width: 480px;
+
+    height: 350px;
+  }
+
+  .laptop {
+    width: 340px;
+  }
+
+  .laptop-screen {
+    height: 220px;
+  }
+
+  .laptop-base {
+    width: 385px;
+  }
+
+  .screen-dashboard {
+    height: 95px;
+  }
+
+  /* Projects */
 
   .projects-grid {
     grid-template-columns: 1fr;
@@ -1175,7 +1375,7 @@ footer {
 }
 
 /* ==================================================
-   10. MOBILE
+   16. MOBILE
 ================================================== */
 
 @media (max-width: 600px) {
@@ -1212,7 +1412,7 @@ footer {
   }
 
   .hero-grid {
-    gap: 25px;
+    gap: 20px;
   }
 
   .hero h1 {
@@ -1247,51 +1447,131 @@ footer {
     font-size: 12px;
   }
 
-  /* Hero Visual */
+  /* Laptop visual */
 
-  .visual-background {
-    min-height: 265px;
+  .laptop-scene {
+    height: 285px;
+
+    max-width: 350px;
   }
 
-  .chart-card {
-    width: 245px;
+  .laptop {
+    width: 260px;
+  }
 
+  .laptop-screen {
     height: 180px;
 
-    padding: 16px;
+    padding: 12px;
+
+    border-width: 6px;
+
+    border-bottom-width: 8px;
   }
 
-  .fake-chart {
-    height: 95px;
+  .laptop-base {
+    width: 295px;
+
+    height: 10px;
   }
 
-  .floating-card {
-    font-size: 9px;
-
-    padding: 9px;
+  .laptop-foot {
+    width: 230px;
   }
 
-  .floating-card-top {
+  .screen-header {
+    margin-bottom: 9px;
+  }
+
+  .screen-label {
+    font-size: 6px;
+  }
+
+  .screen-header strong {
+    font-size: 8px;
+  }
+
+  .screen-kpis {
+    gap: 4px;
+
+    margin-bottom: 8px;
+  }
+
+  .screen-kpi {
+    padding: 5px;
+  }
+
+  .screen-kpi small {
+    font-size: 5px;
+  }
+
+  .screen-kpi strong {
+    font-size: 7px;
+  }
+
+  .screen-dashboard {
+    height: 82px;
+
+    gap: 7px;
+  }
+
+  .screen-chart {
+    gap: 4px;
+
+    padding: 6px 4px 0;
+  }
+
+  .screen-code {
+    padding: 8px 6px;
+
+    gap: 4px;
+
+    font-size: 4.5px;
+  }
+
+  .data-card {
+    right: -2px;
+
+    top: 15px;
+  }
+
+  .decision-card {
     right: 0;
 
-    top: 18px;
+    bottom: 14px;
   }
 
-  .floating-card-bottom {
-    right: 5px;
+  .info-card {
+    min-width: 75px;
 
-    bottom: 20px;
+    padding: 9px 10px;
+
+    font-size: 8px;
   }
 
-  .plant-decoration {
-    font-size: 42px;
+  .info-card strong {
+    font-size: 9px;
+  }
 
-    bottom: 34px;
+  .info-card i {
+    font-size: 9px;
 
+    margin: 3px 0;
+  }
+
+  .plant {
     left: 0;
+
+    bottom: 42px;
+
+    width: 45px;
+
+    height: 45px;
+
+    font-size: 37px;
   }
 
-  /* Section Header */
+  /* Section heading */
 
   .section-heading {
     align-items: flex-start;
@@ -1383,7 +1663,7 @@ footer {
 }
 
 /* ==================================================
-   11. VERY SMALL PHONES
+   17. VERY SMALL PHONES
 ================================================== */
 
 @media (max-width: 390px) {
@@ -1395,8 +1675,34 @@ footer {
     font-size: 37px;
   }
 
-  .chart-card {
-    width: 220px;
+  .laptop-scene {
+    height: 250px;
+  }
+
+  .laptop {
+    width: 225px;
+  }
+
+  .laptop-screen {
+    height: 155px;
+
+    padding: 10px;
+  }
+
+  .laptop-base {
+    width: 255px;
+  }
+
+  .screen-dashboard {
+    height: 65px;
+  }
+
+  .data-card {
+    right: -4px;
+  }
+
+  .decision-card {
+    right: -2px;
   }
 
   .contact-button {
@@ -1406,4 +1712,86 @@ footer {
   .contact-button i {
     font-size: 17px;
   }
+}
+
+/* ==================================================
+   REAL PROJECT IMAGE PREVIEWS
+================================================== */
+
+.project-image-preview {
+  height: 235px;
+
+  padding: 22px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: linear-gradient(135deg, #f3f8ff, #eaf3ff);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.project-image-preview .preview-top {
+  margin-bottom: 14px;
+
+  flex-shrink: 0;
+}
+
+.preview-tool {
+  padding: 4px 9px;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  border: 1px solid #d8e5f5;
+
+  border-radius: 5px;
+
+  color: var(--primary);
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+.dashboard-image-frame {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background: white;
+
+  border: 1px solid #d6e1ef;
+
+  border-radius: 8px;
+
+  box-shadow: 0 8px 22px rgba(35, 65, 100, 0.1);
+}
+
+.dashboard-image-frame img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition: transform 0.35s ease;
+}
+
+.project-card:hover .dashboard-image-frame img {
+  transform: scale(1.025);
+}
+
+/* SQL can have a slightly darker surrounding area */
+
+.sql-image-preview {
+  background: linear-gradient(135deg, #edf3fa, #e5edf7);
 }
